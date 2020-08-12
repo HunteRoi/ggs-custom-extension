@@ -1,0 +1,33 @@
+{
+  "name": "GGS Custom Extension",
+  "version": "1.0",
+  "description": "A custom extension for GGS",
+  "manifest_version": 2,
+  "background": {
+    "scripts": ["background.js"],
+    "persistent": false
+  },
+  "permissions": ["storage", "declarativeContent", "activeTab"],
+  "page_action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/index16.png",
+      "32": "images/index32.png",
+      "48": "images/index48.png",
+      "128": "images/index128.png"
+    }
+  },
+  "icons": {
+    "16": "images/index16.png",
+    "32": "images/index32.png",
+    "48": "images/index48.png",
+    "128": "images/index128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://gum-gum-streaming.com/*"],
+      "run_at": "document_idle",
+      "js": ["content-script.js"]
+    }
+  ]
+}
